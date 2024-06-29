@@ -45,17 +45,28 @@ Project is laid out in a single folder containing:
 git clone https://github.com/sanaiqbalw/math-app-api.git
 cd math-app-api
 ```
-
-### 2. API deployment on the local environment
-
-```bash
-./deploy.sh
-chmod x+ deploy.sh [for any permission issues]
+Check if there is a PORT ENV variable set:
+```
+echo "$PORT"
 ```
 
+If not, and you want to set the PORT to say 5000, run:
+```
+export PORT=5000
+```
+### 2. API deployment on the local environment
+Run these from your terminal.
+
+```bash
+chmod x+ deploy.sh    [for any permission issues]
+./deploy.sh
+
+```
+This deploys the API at the specified port, if you do not specify any port it defaults to 8000 port.
 
 ### 3. To stop and remove the container after deployment:
 
+**NOTE: Dont shut down the API, before testing**
 
 ```bash
 ./shut.sh
@@ -63,15 +74,13 @@ chmod x+ shut.sh [for any permission issues]
 ```
 
 
-This deploys the API at the specified port, if you do not specify any port it defaults to 8000 port.
-
-
 ### 3. Using the API once deployed:
 
 
 **Curl from terminal:**
 
-Note: If you are running from a new window of terminal, you might need to set the port again to same that you used before for deploying the API.
+
+_Note: If you did not set the PORT variable(let it default or set a different port altogether) or you are running curl from a new window, you have to set the port again or use the exact PORT number in the curl (Because curl is again reading the PORT variable from env if not provided)._
 
 ```
 curl -X 'GET' "http://localhost:$PORT/pvalue"
