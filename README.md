@@ -58,7 +58,7 @@ export PORT=5000
 Run these from your terminal.
 
 ```bash
-chmod x+ deploy.sh    [for any permission issues]
+chmod +x deploy.sh    [for any permission issues]
 ./deploy.sh
 
 ```
@@ -70,7 +70,7 @@ This deploys the API at the specified port, if you do not specify any port it de
 
 ```bash
 ./shut.sh
-chmod x+ shut.sh [for any permission issues]
+chmod +x shut.sh [for any permission issues]
 ```
 
 
